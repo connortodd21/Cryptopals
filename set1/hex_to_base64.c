@@ -192,6 +192,42 @@ char *init(char *hex){
     return temp;
 }
 
+void test(){
+    char *out = NULL;
+    
+    printf("Test 1: running...\n");
+    out = init("");
+    assert(strcmp(out, "Please enter a valid string\n") == 0);
+    printf("Test 1: Passed\n\n");
+
+    printf("Test 2: running...\n");
+    out = init("00");
+    assert(strcmp(out, "AA==") == 0);
+    printf("Test 2: Passed\n\n");
+
+    printf("Test 3: running...\n");
+    out = init("0000");
+    assert(strcmp(out, "AAA=") == 0);
+    printf("Test 3: Passed\n\n");
+
+    printf("Test 4: running...\n");
+    out = init("666f6f626172");
+    assert(strcmp(out, "Zm9vYmFy") == 0);
+    printf("Test 4: Passed\n\n");
+
+    printf("Test 5: running...\n");
+    out = init("666f6f");
+    assert(strcmp(out, "Zm9v") == 0);
+    printf("Test 5: Passed\n\n");
+
+    printf("Test 6: running...\n");
+    out = init("49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d");
+    assert(strcmp(out, "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t") == 0);
+    printf("Test 6: Passed\n\n");
+
+    exit(0);
+}
+
 int main(int argc, char **argv){
     if(argc < 2){
         printf("\n****************************\n");
@@ -207,39 +243,7 @@ int main(int argc, char **argv){
 
     if(!strcmp(argv[1], "-t")){
         //tests
-        char *out = NULL;
-
-        printf("Test 1: running...\n");
-        out = init("");
-        assert(strcmp(out, "Please enter a valid string\n") == 0);
-        printf("Test 1: Passed\n\n");
-
-        printf("Test 2: running...\n");
-        out = init("00");
-        assert(strcmp(out, "AA==") == 0);
-        printf("Test 2: Passed\n\n");
-
-        printf("Test 3: running...\n");
-        out = init("0000");
-        assert(strcmp(out, "AAA=") == 0);
-        printf("Test 3: Passed\n\n");
-
-        printf("Test 4: running...\n");
-        out = init("666f6f626172");
-        assert(strcmp(out, "Zm9vYmFy") == 0);
-        printf("Test 4: Passed\n\n");
-
-        printf("Test 5: running...\n");
-        out = init("666f6f");
-        assert(strcmp(out, "Zm9v") == 0);
-        printf("Test 5: Passed\n\n");
-
-        printf("Test 6: running...\n");
-        out = init("49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d");
-        assert(strcmp(out, "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t") == 0);
-        printf("Test 6: Passed\n\n");
-
-        exit(0);
+        test();
     }
     char *hex = argv[1];
     printf("%s\n", init(hex));
