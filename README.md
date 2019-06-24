@@ -2,6 +2,6 @@
 
 My cryptopals challenge solutions
 
-Challenges can be founda at: https://cryptopals.com/
+Challenges can be found at: https://cryptopals.com/
 
 All code done in C, with java solutions to follow
