@@ -230,9 +230,9 @@ void test(){
 
 int main(int argc, char **argv){
     if(argc < 2){
-        printf("\n****************************\n");
+        printf("\n*********************************\n");
         printf("Usage: ./hex_to_base64 <-t | hex>\n");
-        printf("******************************\n\n");
+        printf("*********************************\n\n");
         exit(0);
     }
 
