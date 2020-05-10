@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.Test;
 import java.math.BigInteger;
 
+/*
+Take two hex strings, XOR them together, and return the hex version of the XOR'd string
+ */
+
 public class hex_xor {
 
     private String xor(String bin1, String bin2) {
@@ -44,8 +48,7 @@ public class hex_xor {
         return (new BigInteger(binary, 2).toString(2));
     }
 
-
-    private String init(String hex1, String hex2) {
+    public String init(String hex1, String hex2) {
         if (hex1.length() < 1 || hex2.length() < 1) {
             return "Please enter a valid string\n";
         }
@@ -96,7 +99,7 @@ public class hex_xor {
     public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("\n***************************************************\n");
-            System.out.println("Usage: ./hex_xor < -t > | < hex_string> <hex_string> \n");
+            System.out.println("Usage: java hex_xor < -t > | < hex_string> <hex_string> \n");
             System.out.println("*****************************************************\n\n");
             return;
         }
@@ -104,7 +107,7 @@ public class hex_xor {
         hex_xor h = new hex_xor();
 
         if (args[0].equals("-d")) {
-            System.out.println(h.init("0000", "1111"));
+            System.out.println(h.init("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736", "00ff"));
             return;
         }
 
